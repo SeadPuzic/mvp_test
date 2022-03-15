@@ -1,0 +1,13 @@
+@import 'assets/fonts/fonts.css';
+@import "common";
+
+html, body {
+  overflow: hidden;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

@@ -1,0 +1,9 @@
+<div [class.large-sidebar]="largeSidebar" class="sidebar-wrapper">
+  <div class="sidebar-item" routerLinkActive="active" [class.large-sidebar]="largeSidebar" [routerLink]="menuItem.path"
+       *ngFor="let menuItem of menuItems; let i = index"
+       [class.active]="selectedIndex === i && selectedIndex !== null"
+       (click)="setIndex(i);">
+    <img [src]="'./assets/images/' + menuItem.icon" />
+    <p>{{ menuItem.title }}</p>
+  </div>
+</div>

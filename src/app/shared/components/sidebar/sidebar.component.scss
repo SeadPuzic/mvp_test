@@ -1,0 +1,109 @@
+@import 'colors';
+@import 'fonts';
+
+.sidebar-wrapper {
+  top: 120px;
+  position: fixed;
+  width: 129px;
+  padding-left: 39px;
+
+  .sidebar-item {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    margin-bottom: 6px;
+
+    p {
+      border-radius: 4px;
+      visibility: hidden;
+      font-size: 14px;
+      display: block;
+      position: absolute;
+      padding: 0 20px;
+      line-height: 40px;
+      background-color: $grey-light;
+      left: 60px;
+      margin-bottom: 0;
+      @include main-font-bold;
+      color: $grey-main;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent $grey-light transparent transparent;
+      }
+    }
+
+    &.active {
+      img {
+        filter: invert(58%) sepia(30%) saturate(5251%) hue-rotate(332deg) brightness(98%) contrast(78%)
+      }
+      p {
+        color: $orange-main;
+      }
+
+      &:hover {
+        img {
+          filter: invert(58%) sepia(30%) saturate(5251%) hue-rotate(332deg) brightness(98%) contrast(78%)
+        }
+
+        p {
+          visibility: visible;
+          color: $orange-main;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: $grey-light;
+
+      img {
+        filter: invert(7%) sepia(29%) saturate(15%) hue-rotate(314deg) brightness(35%) contrast(87%);
+      }
+
+      p {
+        visibility: hidden;
+        color: white;
+      }
+    }
+  }
+
+
+  &.large-sidebar {
+    .sidebar-item {
+      p {
+        border-radius: 4px;
+        width: 166px;
+        visibility: visible !important;
+        font-size: 14px;
+        display: block;
+        position: absolute;
+        padding: 0 20px;
+        line-height: 50px !important;
+        background-color: transparent !important;
+        left: 48px !important;
+        margin-bottom: 0;
+        &::after {
+          display: none !important;
+        }
+      }
+      &:hover {
+        p {
+          background-color: $yellow !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@mixin main-font-light {
+  font-family: 'roboto-light', sans-serif;
+}
+
+@mixin main-font-light-italic {
+  font-family: 'roboto-light-italic', sans-serif;
+}
+
+@mixin main-font-regular {
+  font-family: 'roboto-regular', sans-serif;
+}
+
+@mixin main-font-regular-italic {
+  font-family: 'roboto-regular-italic', sans-serif;
+}
+
+@mixin main-font-medium {
+  font-family: 'roboto-medium', sans-serif;
+}
+
+@mixin main-font-medium-italic {
+  font-family: 'roboto-medium-italic', sans-serif;
+}
+
+@mixin main-font-bold {
+  font-family: 'roboto-bold', sans-serif;
+}
+
+@mixin main-font-bold-italic {
+  font-family: 'roboto-bold-italic', sans-serif;
+}

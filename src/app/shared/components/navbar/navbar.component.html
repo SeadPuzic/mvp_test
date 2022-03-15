@@ -1,0 +1,33 @@
+<!--Desktop navbar -->
+
+<div class="main-navbar" *ngIf="!isMobileScreen; else mobileScreen">
+  <div class="logo">
+    <img class="logo-icon" src="../assets/images/logo.svg">
+    <img class="hamburger-icon" src="../assets/images/hamburger.svg" [class.large-sidebar]="largeSidebar" (click)="toggleSidebar()">
+  </div>
+  <div class="information">
+    <div class="avatar">
+      <span>JD</span>
+      <p>{{ avatar }}</p>
+    </div>
+  </div>
+</div>
+
+<!--Mobile navbar -->
+
+<ng-template #mobileScreen>
+  <div class="flowr-navbar-mobile">
+    <div class="logo">
+      <img src="../../../../assets/images/logo.svg" (click)="toggleSidebar()">
+    </div>
+    <img src="assets/images/hamburger.svg" (click)="toggleMenu()">
+    <div class="information-wrapper" [class.show]="showMenu">
+      <div *ngIf="showMenu" class="information">
+        <div class="avatar">
+          <span>JD</span>
+          <p>{{ avatar }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
