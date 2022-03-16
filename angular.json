@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "flowr-spot": {
+    "mvp-test": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/flowr-spot",
+            "outputPath": "dist/mvp-test",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -79,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "flowr-spot:build:production"
+              "browserTarget": "mvp-test:build:production"
             },
             "development": {
-              "browserTarget": "flowr-spot:build:development"
+              "browserTarget": "mvp-test:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "flowr-spot:build"
+            "browserTarget": "mvp-test:build"
           }
         },
         "test": {
@@ -115,7 +115,7 @@
       }
     }
   },
-  "defaultProject": "flowr-spot",
+  "defaultProject": "mvp-test",
   "cli": {
     "analytics": false,
     "defaultCollection": "@ngrx/schematics"

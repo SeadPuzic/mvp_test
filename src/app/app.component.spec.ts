@@ -16,9 +16,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'flowr-spot'`, () => {
+  it(`should have as title 'mvp-test'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('flowr-spot');
+    expect(app.title).toEqual('mvp-test');
   });
 });
