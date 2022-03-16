@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FlowerComponent } from './flower.component';
+import { SelectBoxComponent } from './select-box.component';
 
 describe('FlowerComponent', () => {
-  let component: FlowerComponent;
-  let fixture: ComponentFixture<FlowerComponent>;
+  let component: SelectBoxComponent;
+  let fixture: ComponentFixture<SelectBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlowerComponent ]
+      declarations: [ SelectBoxComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FlowerComponent);
+    fixture = TestBed.createComponent(SelectBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,4 @@
-# FlowrSpot - Application by Sead Puzic
+# MVP Report Test - Application by Sead Puzic
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 

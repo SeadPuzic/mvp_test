@@ -1,0 +1,39 @@
+<div class="report-wrapper">
+    <div class="filter-wrapper">
+        <div class="info">
+            <p class="title">Reports</p>
+            <p class="subtitle">Easily generate a report of your transactions</p>
+        </div>
+        <div class="inputs">
+            <app-select [data]="projects" [currentValue]="activeProject" (currentValueChanged)="projectChanged($event)"></app-select>
+            <app-select [data]="gateways" [currentValue]="activeGateway" (currentValueChanged)="gatewayChanged($event)"></app-select>
+            <div class="calendar">
+                <input class="calendar-input" [(ngModel)]="dateFrom" type="text" ngbDatepicker #dateFromTemplate="ngbDatepicker" placeholder="From Date" [readonly]="true"/>
+                <button class="calendar-button" (click)="dateFromTemplate.toggle()"><img src="assets/images/calendar.svg"></button>
+            </div>
+            <div class="calendar">
+                <input class="calendar-input" [(ngModel)]="dateTo" type="text" [minDate]="dateFrom" ngbDatepicker #dateToTemplate="ngbDatepicker" placeholder="To Date" [readonly]="true"/>
+                <button class="calendar-button" (click)="dateToTemplate.toggle()"><img src="assets/images/calendar.svg"></button>
+            </div>
+            <button class="submit-button" (click)="generateReport()">Generate report</button>
+        </div>
+
+    </div>
+
+
+    <div class="data">
+        <div class="data-table" *ngIf="data.length; else noData"></div>
+
+
+    </div>
+</div>
+
+<ng-template #noData>
+    <div class="no-data">
+        <p class="title">No reports</p>
+        <p class="subtitle">Currently you have no data for the reports to be generated.
+            Once you start generating traffic through the Balance application
+            the reports will be shown.</p>
+        <img src="assets/images/noReports.svg" />
+    </div>
+</ng-template>

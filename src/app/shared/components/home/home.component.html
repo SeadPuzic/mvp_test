@@ -4,7 +4,7 @@
   <div [class.largeSidebar]="largeSidebar" class="sidebar">
     <app-sidebar [largeSidebar]="largeSidebar"  (largeSidebarSwitched)="sidebarSwitched($event)"></app-sidebar>
   </div>
-  <div [style.left.px]="largeSidebar ? '300' : '129'" class="main-panel">
+  <div [style.left.px]="largeSidebar ? '300' : '129'" [class.large-sidebar]="largeSidebar" class="main-panel">
     <router-outlet></router-outlet>
   </div>
 </div>

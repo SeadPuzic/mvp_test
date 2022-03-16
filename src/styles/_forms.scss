@@ -1,93 +1,21 @@
 @import "fonts";
 @import "colors";
 
-.group {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.form-input {
+.calendar-input {
   @include main-font-regular;
-  font-size: 13px;
-  padding: 10px 12px 0 12px;
-  display: block;
-  width: 100%;
-  background: $grey-secondary;
-  border: 1px solid $grey-light;
-  box-sizing: border-box;
-  border-radius: 3px;
-  height: 50px;
-
-  &.error {
-    border: 1px solid $error-main;
-  }
-}
-
-.form-input:focus {
+  font-size: 14px;
+  background: $green;
+  color: white;
+  width: 115px;
+  padding: 0 20px;
+  height: 32px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: none;
   outline: none;
-}
 
-/* LABEL ======================================= */
-label {
-  @include main-font-regular;
-  color: $black-main;
-  font-size: 13px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 12px;
-  top: 15px;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-
-/* active state */
-.form-input:focus ~ label, .form-input.content ~ label {
-  top: 5px;
-  font-size: 10px;
-  color: $grey-main;
-}
-
-/* active state */
-.form-input:focus ~ .bar:before, .form-input:focus ~ .bar:after {
-  width: 50%;
-}
-
-/* active state */
-.form-input:focus ~ .highlight {
-  -webkit-animation: inputHighlighter 0.3s ease;
-  -moz-animation: inputHighlighter 0.3s ease;
-  animation: inputHighlighter 0.3s ease;
-}
-
-/* ANIMATIONS ================ */
-@-webkit-keyframes inputHighlighter {
-  from {
-    background: $black-main;
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
-}
-
-@-moz-keyframes inputHighlighter {
-  from {
-    background: $black-main;
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
-}
-
-@keyframes inputHighlighter {
-  from {
-    background: $black-main;
-  }
-  to {
-    width: 0;
-    background: transparent;
+  &::placeholder {
+    color: white;
   }
 }

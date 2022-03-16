@@ -2,33 +2,42 @@
 @import "colors";
 
 .btn-link {
-  color: $orange-main !important;
+  color: $green !important;
 }
 
 .btn-light.bg-primary.text-white {
-  background: linear-gradient(270deg, $orange-secondary 0%, $orange-main 100%) !important;
+  background: linear-gradient(270deg, $green 0%, $green 100%) !important;
 }
 
-.application-button {
-  background: linear-gradient(270deg, $orange-secondary 0%, $orange-main 100%);
-  box-shadow: 0 15px 20px rgba(234, 168, 159, 0.2);
-  border-radius: 3px;
+.calendar-button {
+  background: $green;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
   border: none;
-  color: $white;
-  @include main-font-medium;
+  box-shadow: none;
+  outline: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-button {
+  @include main-font-regular;
   font-size: 14px;
-  height: 50px;
-
-  &.large-button {
-    width: 100%;
-
-  }
-
-  &.normal-button {
-    width: 150px;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-  }
+  color: white;
+  background: $blue;
+  height: 32px;
+  margin: 0;
+  padding: 0 10px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -30,6 +30,7 @@ export class ApplicationService {
   }
 
   generateReport(report: Report) {
-    return this.http.post(this.rootURL + 'report', {report});
+    return this.http.post(this.rootURL + 'report', report)
+        .pipe(map((response: any) => response.data));
   }
 }

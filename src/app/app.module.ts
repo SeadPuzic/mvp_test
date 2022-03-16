@@ -2,14 +2,14 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {RouterModule} from "@angular/router";
-import {ReportModule} from "./flowers/report.module";
+import {ReportModule} from "./components/report.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {HomeComponent} from "./shared/components/home/home.component";
 import {NavbarComponent} from "./shared/components/navbar/navbar.component";
 import {NotFoundComponent} from "./shared/components/notFound/notFound.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SidebarComponent} from "./shared/components/sidebar/sidebar.component";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbDatepickerModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CommonModule} from "@angular/common";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
@@ -31,6 +31,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ReactiveFormsModule,
     ReportModule,
     NgbModule,
+    NgbDatepickerModule
   ],
   bootstrap: [AppComponent]
 })

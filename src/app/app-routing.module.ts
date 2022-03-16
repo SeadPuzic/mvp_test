@@ -3,9 +3,9 @@ import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from "./shared/components/home/home.component";
-import {ReportComponent} from "./flowers/report/report.component";
+import {ReportComponent} from "./components/report/report.component";
 import {NotFoundComponent} from "./shared/components/notFound/notFound.component";
-import {OtherComponent} from "./flowers/other/other.component";
+import {OtherComponent} from "./components/other/other.component";
 
 const routes: Routes = [
   {
