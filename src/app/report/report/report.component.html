@@ -23,7 +23,7 @@
 
     <div class="data" *ngIf="data.length; else noData">
         <div class="table" [style.width.%]="chart ? 50 : 100">
-            <div class="data-table-wrapper">
+            <div class="data-table-wrapper" [class.full-height]="chart">
                 <p class="table-title">{{ reportTitle }}</p>
                 <div class="toggle-wrapper" *ngFor="let item of data; let i = index;">
                     <div *ngIf="data.length > 1" class="toggle-title" (click)="setActiveIndex(i)">
@@ -55,10 +55,10 @@
 
         <div *ngIf="chart" class="chart-area" [style.width.%]="50">
             <div class="chart-data">
-                <ngx-charts-pie-chart [doughnut]="true" [results]="chartData" [legend]="true" [legendTitle]="''"></ngx-charts-pie-chart>
+                <ngx-charts-pie-chart [doughnut]="true" [results]="chartData" [legend]="true" [legendTitle]="''" [labels]="true" [labelFormatting]="setLabelFormatting"></ngx-charts-pie-chart>
             </div>
             <div class="total-info margin-top">
-                <p class="sum-total">{{ this.activeProject.name === 'All projects' ? 'Projects' : 'Gateway' }} Total: {{ totalSum | currency:'USD':'': '1.0-0' }} USD</p>
+                <p class="sum-total">{{ totalChartTitle }} Total: {{ totalSum | currency:'USD':'': '1.0-0' }} USD</p>
             </div>
         </div>
 

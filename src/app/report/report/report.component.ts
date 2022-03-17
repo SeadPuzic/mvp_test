@@ -30,7 +30,8 @@ export class ReportComponent implements OnInit {
   reportTitle: string = '';
   activeIndex: number | null = null;
   chart: boolean = true;
-  chartData: any[] = []
+  chartData: any[] = [];
+  totalChartTitle: string = '';
 
   constructor(private applicationService: ApplicationService) {}
 
@@ -72,6 +73,8 @@ export class ReportComponent implements OnInit {
             chart = false;
         }
 
+        this.totalChartTitle = this.activeProject.name === 'All projects' ? 'Projects' : 'Gateway';
+
         this.reportTitle = `${this.activeProject.name} | ${this.activeGateway.name}`;
         this.activeIndex = null;
         this.data = this.mapData(res, criteriaId, criteriaName, invertedName);
@@ -84,10 +87,10 @@ export class ReportComponent implements OnInit {
                 })
             })
             this.chartData = data;
+            console.log(this.chartData);
         }
         this.chart = chart;
     });
-
   }
 
   projectChanged(event: Event) {
@@ -96,6 +99,18 @@ export class ReportComponent implements OnInit {
 
   gatewayChanged(event: Event) {
       this.activeGateway = event;
+  }
+
+  setLabelFormatting(c: any): string {
+        const amount: any = this.data.find((data: any) => data.data.name === c);
+        let totalSum = 0;
+        this.data.forEach((data: any) => {
+            totalSum += data.data.value;
+        })
+        if (!amount && !amount?.data) {
+            return '';
+        }
+        return `${Math.round((amount.data.value / totalSum) * 100)}%`;
   }
 
   mapData(allData: any[], criteriaId: string, criteriaName: string, invertedName: string) {
