@@ -37,6 +37,10 @@
   padding: 33px 100px 0 0;
   height: calc(100% - 80px);
 
+  @media (max-width: 700px) {
+    padding-right: 10px;
+  }
+
   &.large-sidebar {
     display: block;
     @media (max-width: 500px) {

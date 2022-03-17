@@ -8,7 +8,7 @@
             <app-select [data]="projects" [currentValue]="activeProject" (currentValueChanged)="projectChanged($event)"></app-select>
             <app-select [data]="gateways" [currentValue]="activeGateway" (currentValueChanged)="gatewayChanged($event)"></app-select>
             <div class="calendar">
-                <input class="calendar-input" [(ngModel)]="dateFrom" type="text" ngbDatepicker #dateFromTemplate="ngbDatepicker" placeholder="From Date" [readonly]="true"/>
+                <input class="calendar-input" [(ngModel)]="dateFrom" [maxDate]="dateTo" type="text" ngbDatepicker #dateFromTemplate="ngbDatepicker" placeholder="From Date" [readonly]="true"/>
                 <button class="calendar-button" (click)="dateFromTemplate.toggle()"><img src="assets/images/calendar.svg"></button>
             </div>
             <div class="calendar">
@@ -21,19 +21,61 @@
     </div>
 
 
-    <div class="data">
-        <div class="data-table" *ngIf="data.length; else noData"></div>
+    <div class="data" *ngIf="data.length; else noData">
+        <div class="table" [style.width.%]="chart ? 50 : 100">
+            <div class="data-table-wrapper">
+                <p class="table-title">{{ reportTitle }}</p>
+                <div class="toggle-wrapper" *ngFor="let item of data; let i = index;">
+                    <div *ngIf="data.length > 1" class="toggle-title" (click)="setActiveIndex(i)">
+                        <p>{{ item.criteriaName }}</p>
+                        <p>{{ item.totalAmount | currency:'USD':'': '1.0-0' }} USD</p>
+                    </div>
+                    <div class="toggle-data" *ngIf="activeIndex === i || data.length === 1">
+                        <div class="data-wrapper">
+                            <div class="data-first-row">
+                                <p [style.width.%]="item.title ? 25 : 33">Date</p>
+                                <p class="middle" *ngIf="item.title" [style.width.%]="25">{{ item.title }}</p>
+                                <p class="middle" [style.width.%]="item.title ? 25 : 33">Transaction id</p>
+                                <p class="end" [style.width.%]="item.title ? 25 : 33">Amount</p>
+                            </div>
+                            <div class="data-rows" [class.transparent]="z % 2 !== 0" *ngFor="let report of item.data; let z = index;">
+                                <p [style.width.%]="report.invertedName ? 25 : 33">{{ report.modified | date:'MM/dd/YYYY' }}</p>
+                                <p class="middle" *ngIf="report.invertedName" [style.width.%]="25">{{ report.invertedName }}</p>
+                                <p class="middle" [style.width.%]="report.invertedName ? 25 : 33">{{ report.paymentId }}</p>
+                                <p class="end" [style.width.%]="report.invertedName ? 25 : 33">{{ report.amount | currency:'USD':'': '1.0-0' }} USD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="total-info" *ngIf="!chart">
+                <p class="sum-total">Total: {{ totalSum | currency:'USD':'': '1.0-0' }} USD</p>
+            </div>
+        </div>
+
+        <div *ngIf="chart" class="chart-area" [style.width.%]="50">
+            <div class="chart-data">
+                <ngx-charts-pie-chart [doughnut]="true" [results]="chartData" [legend]="true" [legendTitle]="''"></ngx-charts-pie-chart>
+            </div>
+            <div class="total-info margin-top">
+                <p class="sum-total">{{ this.activeProject.name === 'All projects' ? 'Projects' : 'Gateway' }} Total: {{ totalSum | currency:'USD':'': '1.0-0' }} USD</p>
+            </div>
+        </div>
 
 
     </div>
 </div>
 
+
+
 <ng-template #noData>
-    <div class="no-data">
-        <p class="title">No reports</p>
-        <p class="subtitle">Currently you have no data for the reports to be generated.
-            Once you start generating traffic through the Balance application
-            the reports will be shown.</p>
-        <img src="assets/images/noReports.svg" />
+    <div class="no-data-wrapper">
+        <div class="no-data">
+            <p class="title">No reports</p>
+            <p class="subtitle">Currently you have no data for the reports to be generated.
+                Once you start generating traffic through the Balance application
+                the reports will be shown.</p>
+            <img src="assets/images/noReports.svg" />
+        </div>
     </div>
 </ng-template>

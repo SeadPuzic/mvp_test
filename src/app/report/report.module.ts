@@ -7,6 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {OtherComponent} from "./other/other.component";
 import {FormsModule} from "@angular/forms";
 import {NgbDatepickerModule} from "@ng-bootstrap/ng-bootstrap";
+import {PieChartModule} from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {NgbDatepickerModule} from "@ng-bootstrap/ng-bootstrap";
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbDatepickerModule
+        NgbDatepickerModule,
+        PieChartModule
     ],
   providers: [ApplicationService],
   exports: [ReportComponent, SelectBoxComponent]
