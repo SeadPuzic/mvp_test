@@ -160,10 +160,6 @@ export class ReportComponent implements OnInit {
       return this.gateways.find(gateway => gateway.gatewayId === element).name;
     }
 
-    setActiveIndex(index: number) {
-        this.activeIndex = index === this.activeIndex ? null : index;
-    }
-
     get totalSum() {
       let sum = 0;
       this.data.forEach(d => {

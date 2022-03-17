@@ -8,10 +8,12 @@ import {OtherComponent} from "./other/other.component";
 import {FormsModule} from "@angular/forms";
 import {NgbDatepickerModule} from "@ng-bootstrap/ng-bootstrap";
 import {PieChartModule} from "@swimlane/ngx-charts";
+import {ReportTableComponent} from "./report-table/report-table.component";
 
 @NgModule({
   declarations: [
     ReportComponent,
+      ReportTableComponent,
     SelectBoxComponent,
     OtherComponent,
   ],

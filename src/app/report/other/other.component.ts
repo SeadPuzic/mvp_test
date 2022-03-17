@@ -7,7 +7,6 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class OtherComponent implements OnInit {
-  flowers = [];
   constructor() {}
 
   ngOnInit() {}

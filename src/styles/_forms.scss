@@ -19,3 +19,22 @@
     color: white;
   }
 }
+
+.total-info {
+  @include main-font-bold;
+  font-size: 16px;
+  color: $dark-blue;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: $light-blue;
+  border-radius: 10px;
+  height: 53px;
+  padding: 0 19px;
+  text-transform: uppercase;
+  margin-top: 27px;
+
+  &.margin-top {
+    margin-top: 15%;
+  }
+}

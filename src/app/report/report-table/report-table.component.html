@@ -1,0 +1,28 @@
+<div class="data-table-wrapper" [class.full-height]="fullHeight">
+    <p class="table-title">{{ reportTitle }}</p>
+    <div class="toggle-wrapper" *ngFor="let item of data; let i = index;">
+        <div *ngIf="data.length > 1" class="toggle-title" (click)="setActiveIndex(i)">
+            <p>{{ item.criteriaName }}</p>
+            <p>{{ item.totalAmount | currency:'USD':'': '1.0-0' }} USD</p>
+        </div>
+        <div class="toggle-data" *ngIf="activeIndex === i || data.length === 1">
+            <div class="data-wrapper">
+                <div class="data-first-row">
+                    <p [style.width.%]="item.title ? 25 : 33">Date</p>
+                    <p class="middle" *ngIf="item.title" [style.width.%]="25">{{ item.title }}</p>
+                    <p class="middle" [style.width.%]="item.title ? 25 : 33">Transaction id</p>
+                    <p class="end" [style.width.%]="item.title ? 25 : 33">Amount</p>
+                </div>
+                <div class="data-rows" [class.transparent]="z % 2 !== 0" *ngFor="let report of item.data; let z = index;">
+                    <p [style.width.%]="report.invertedName ? 25 : 33">{{ report.modified | date:'MM/dd/YYYY' }}</p>
+                    <p class="middle" *ngIf="report.invertedName" [style.width.%]="25">{{ report.invertedName }}</p>
+                    <p class="middle" [style.width.%]="report.invertedName ? 25 : 33">{{ report.paymentId }}</p>
+                    <p class="end" [style.width.%]="report.invertedName ? 25 : 33">{{ report.amount | currency:'USD':'': '1.0-0' }} USD</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="total-info" *ngIf="!fullHeight">
+    <p class="sum-total">Total: {{ totalSum | currency:'USD':'': '1.0-0' }} USD</p>
+</div>
